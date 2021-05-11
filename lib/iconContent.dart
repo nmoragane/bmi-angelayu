@@ -5,10 +5,10 @@ const labelTextStyle = TextStyle(
   color: Color(0xFF8D8E98),
 );
 
-class Gender extends StatelessWidget {
+class IconContent extends StatelessWidget {
   final String gender;
   final IconData iconType;
-  const Gender({@required this.gender, @required this.iconType});
+  const IconContent({@required this.gender, @required this.iconType});
 
   @override
   Widget build(BuildContext context) {
