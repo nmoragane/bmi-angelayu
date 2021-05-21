@@ -20,6 +20,7 @@ class _InputPageState extends State<InputPage> {
 
   Gender selectedGender;
   int height = 180;
+  int weight = 60;
   // //1=male, 2=female
   // void updateColor(Gender selectedGender) {
   //   if (selectedGender == Gender.male) {
@@ -136,6 +137,28 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: ReusableCard(
                 colour: kActiveCardColor,
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'WEIGHT',
+                      style: kLabelTextStyle,
+                    ),
+                    Text(
+                      weight.toString(),
+                      style: kNumberTextStyle,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          RoundIconButton(),
+                        ])
+                  ],
+                ),
               ),
             ),
             Expanded(
@@ -151,6 +174,21 @@ class _InputPageState extends State<InputPage> {
             height: kBottomContainerHeight,
           )
         ],
+      ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: () {},
+      shape: CircleBorder(),
+      fillColor: Color(0xFF4C4F5E),
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
       ),
     );
   }
