@@ -13,7 +13,7 @@ class CalculatorBrain {
     return _bmi.toStringAsFixed(1); //to string with a single decimal place
   }
 
-  String getResult(_bmi) {
+  String getResult() {
     if (_bmi >= 25) {
       return 'OVERWEIGHT';
     } else if (_bmi > 18.5) {
@@ -23,7 +23,7 @@ class CalculatorBrain {
     }
   }
 
-  String getInterpretation(_bmi) {
+  String getInterpretation() {
     if (_bmi >= 25) {
       return 'You will die soon, exercise';
     } else if (_bmi > 18.5) {

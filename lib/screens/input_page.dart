@@ -166,7 +166,7 @@ class _InputPageState extends State<InputPage> {
                                 weight--;
                               });
                             },
-                            icon: FontAwesomeIcons.plus,
+                            icon: FontAwesomeIcons.minus,
                           ),
                           SizedBox(
                             width: 10.0,
@@ -177,7 +177,7 @@ class _InputPageState extends State<InputPage> {
                                 weight++;
                               });
                             },
-                            icon: FontAwesomeIcons.minus,
+                            icon: FontAwesomeIcons.plus,
                           ),
                         ])
                   ],
@@ -202,20 +202,20 @@ class _InputPageState extends State<InputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         RoundIconButton(
-                            icon: FontAwesomeIcons.plus,
+                            icon: FontAwesomeIcons.minus,
                             onPressed: () {
                               setState(() {
-                                age++;
+                                age--;
                               });
                             }),
                         SizedBox(
                           width: 10.0,
                         ),
                         RoundIconButton(
-                            icon: FontAwesomeIcons.minus,
+                            icon: FontAwesomeIcons.plus,
                             onPressed: () {
                               setState(() {
-                                age--;
+                                age++;
                               });
                             }),
                       ],
@@ -230,8 +230,14 @@ class _InputPageState extends State<InputPage> {
             onTap: () {
               CalculatorBrain calc = CalculatorBrain(height, weight);
 
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ResultsPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ResultsPage(
+                            bmiResult: calc.calculateBMI(),
+                            resultText: calc.getResult(),
+                            interpretation: calc.getInterpretation(),
+                          )));
             },
           ),
         ],
